@@ -1,0 +1,5 @@
+#!/bin/bash
+echo 'export JAVA_HOME=/root/java/jdk1.8.0_161' >> /root/.bash_profile
+echo 'export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH' >> /root/.bash_profile
+echo 'export CLASSPATH=.$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tools.jar' >> /root/.bash_profile
+source ~/.bash_profile

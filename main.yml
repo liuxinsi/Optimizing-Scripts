@@ -1,0 +1,14 @@
+- hosts: dw
+  tasks:
+    - name: mkdir
+      shell: mkdir -p /root/java/
+    - name: copy jdk to remote host
+      copy: src=jdk-8u161-linux-x64.tar.gz dest=/root/java/
+    - name: unzip jdk
+      shell: tar -zxf /root/java/jdk-8u161-linux-x64.tar.gz -C /root/java/
+    - name: set jdk_env copy use template
+      template: src=java_home.sh.j2 dest=/root/java/set_jdk.sh
+    - name: execute script to set jdkenv
+      shell: sh /root/java/set_jdk.sh
+    - name: source bash_profile
+      shell: source /root/.bash_profile
